@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Casa Mia | Agriturismo Poggio Cancelli</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fbf9f5;
+            color: #3e332a;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #ffffff;
+            border-bottom: 3px solid #4a6b42;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .logo {
+            max-width: 280px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: #5c3a21;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0 15px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #4a6b42;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://unsplash.com') no-repeat center center/cover;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        .section {
+            padding: 50px 20px;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-family: 'Georgia', serif;
+            color: #5c3a21;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border-top: 4px solid #4a6b42;
+        }
+
+        .card h3 {
+            color: #5c3a21;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #e2decb;
+            padding-bottom: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #f5f2ea;
+            color: #5c3a21;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: 1px solid #e2decb;
+        }
+
+        .social-btn:hover {
+            background: #4a6b42;
+            color: #fff;
+        }
+
+        .camere-elenco {
+            list-style: none;
+        }
+
+        .camere-elenco li {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .camere-elenco li::before {
+            content: "•";
+            color: #4a6b42;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        footer {
+            background-color: #3e332a;
+            color: #dfdcd6;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-top: 5px solid #4a6b42;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            color: #dfdcd6;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav a { display: block; margin: 10px 0; }
+            .social-links { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="image_q6bc8i.png" alt="Agriturismo A Casa Mia Logo" class="logo">
+        <nav>
+            <a href="#ristorante">Ristorante</a>
+            <a href="#camere">Camere</a>
+            <a href="#contatti">Contatti</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Agriturismo A Casa Mia</h1>
+        <a href="https://wa.me" target="_blank" class="btn-whatsapp">💬 Prenota su WhatsApp</a>
+    </section>
+
+    <!-- Ristorante -->
+    <section id="ristorante" class="section">
+        <h2>Il Ristorante</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Antipasti</h3>
+                <div class="menu-item"><span>Tagliere di salumi e Mortadella di Campotosto</span></div>
+                <div class="menu-item"><span>Ricotta di pecora e formaggi locali</span></div>
+            </div>
+            <div class="card">
+                <h3>Primi Piatti</h3>
+                <div class="menu-item"><span>Ravioli di ricotta fatti a mano</span></div>
+                <div class="menu-item"><span>Sagne e fagioli tradizionali</span></div>
+                <div class="menu-item"><span>Tagliatelle al sugo</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Camere -->
+    <section id="camere" class="section" style="background-color: #f5f2ea;">
+        <h2>Le Camere</h2>
+        <div class="card" style="max-width: 500px; margin: 0 auto;">
+            <h3>Disponibilità pernottamento</h3>
+            <ul class="camere-elenco">
+                <li><strong>Mirtillo</strong></li>
+                <li><strong>Rosa Canina</strong></li>
+                <li><strong>Ginestra</strong></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contatti -->
+    <section id="contatti" class="section">
+        <h2>Info e Contatti</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Orari d'apertura</h3>
+                <p><strong>Sabato e Domenica:</strong> Aperto a pranzo</p>
+                <p><strong>In settimana:</strong> Solo su prenotazione</p>
+                <p style="margin-top: 10px; color: #cc0000; font-weight: bold;">Chiuso il Giovedì</p>
+            </div>
+            <div class="card">
+                <h3>Recapiti</h3>
+                <p>📍 Via Piedi Mascioni, Fraz. Poggio Cancelli, 67013 - Campotosto (AQ)</p>
+                <p style="margin-top: 5px;">💬 WhatsApp: <a href="https://wa.me" target="_blank" style="color:#4a6b42; font-weight:bold; text-decoration:none;">+39 379 281 7100</a></p>
+                <p>📞 Tel: +39 389 097 2513</p>
+                <p>✉️ Email: acasamia.agriturismo@gmail.com</p>
+            </div>
+            <div class="card">
+                <h3>Canali Social</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" class="social-btn">📘 Facebook</a>
+                    <a href="https://instagram.com" target="_blank" class="social-btn">📸 Instagram</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Agriturismo 'A Casa Mia' di Rascelli Federico</strong></p>
+        <p>Poggio Cancelli, Campotosto (L'Aquila)</p>
+        <p>
+            <a href="https://facebook.com" target="_blank">Facebook</a> | 
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </p>
+    </footer>
+
+</body>
+</html>
