@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Casa Mia | Agriturismo Poggio Cancelli</title>
+    <style>
+        /* RESET GENERALE E VARIABILI CROMATICHE COERENTI CON IL LOGO */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #fdfcfb;
+            color: #3c3530;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* UTILITY STRIP SUPERIORE PER IL SALVATAGGIO RAPIDO DEL FILE */
+        .utility-bar {
+            background-color: #4e3629;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .utility-btn {
+            background-color: #25D366;
+            color: #ffffff;
+            border: none;
+            padding: 8px 18px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.2s ease;
+        }
+
+        .utility-btn:hover {
+            background-color: #20ba59;
+        }
+
+        /* HEADER STRUTTURATO PER ALLINEARE E DISTRIBUIRE IL LOGO */
+        header {
+            background-color: #ffffff;
+            padding: 40px 20px 25px 20px;
+            text-align: center;
+            border-bottom: 1px solid #f3ebe1;
+        }
+
+        .logo-box {
+            max-width: 290px;
+            margin: 0 auto 25px auto;
+            display: block;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #4e3629;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: color 0.2s ease;
+            padding-bottom: 4px;
+        }
+
+        nav a:hover {
+            color: #556b2f;
+        }
+
+        /* SEZIONE COPERTINA E INTRODUZIONE DI IMPATTO */
+        .hero-section {
+            background: linear-gradient(rgba(78, 54, 41, 0.35), rgba(78, 54, 41, 0.45)), url('https://unsplash.com') no-repeat center center/cover;
+            height: 440px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-section h1 {
+            font-size: 3.4rem;
+            font-family: 'Georgia', serif;
+            font-weight: 400;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .whatsapp-action-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: #ffffff;
+            padding: 16px 38px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-action-btn:hover {
+            background-color: #20ba59;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+        }
+
+        /* STRUTTURA LOGICA DEI CONTENUTI */
+        .main-wrapper {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 90px 25px;
+        }
+
+        .block-title {
+            font-family: 'Georgia', serif;
+            color: #4e3629;
+            font-size: 2.4rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .info-card {
+            background: #ffffff;
+            padding: 45px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(78, 54, 41, 0.03);
+            border: 1px solid #f4eee7;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 45px rgba(78, 54, 41, 0.06);
+        }
+
+        .info-card h3 {
+            color: #4e3629;
+            font-family: 'Georgia', serif;
+            font-size: 1.45rem;
+            margin-bottom: 25px;
+            font-weight: 400;
+            border-bottom: 2px solid #e8efe9;
+            padding-bottom: 12px;
+        }
+
+        .detail-row {
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+            color: #504740;
+        }
+
+        .detail-row strong {
+            color: #4e3629;
+        }
+
+        /* CONTAINER DEDICATO OSPITALITÀ */
+        .rooms-display-card {
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(78, 54, 41, 0.03);
+            border: 1px solid #f4eee7;
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .rooms-display-card h3 {
+            color: #4e3629;
+            font-family: 'Georgia', serif;
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .rooms-flex-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .rooms-flex-list li {
+            font-size: 1.05rem;
+            padding: 10px 24px;
+            color: #556b2f;
+            background-color: #e8efe9;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        /* EMBED PULSANTI LINK SOCIAL */
+        .social-buttons-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .social-action-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            color: #4e3629;
+            padding: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid #dcd1c4;
+            transition: all 0.25s ease;
+        }
+
+        .social-action-link:hover {
+            background: #556b2f;
+            color: #ffffff;
+            border-color: #556b2f;
+        }
+
+        /* CHIUSURA ED ELEMENTI PIÈ DI PAGINA */
+        footer {
+            background-color: #1e1916;
+            color: #cbc4bc;
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 0.95rem;
+            border-top: 1px solid #2e2622;
+        }
+
+        footer p {
+            margin-bottom: 12px;
+        }
+
+        footer .footer-social-navigation a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.4rem; }
+            nav { flex-direction: column; align-items: center; gap: 18px; }
+            .info-card { padding: 35px 25px; }
+            .rooms-display-card { padding: 35px 25px; }
+            .rooms-flex-list { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="utility-bar">
+        <button class="utility-btn" onclick="downloadPage()">💾 Salva la pagina sul computer</button>
+    </div>
+
+    <header>
+        <div class="logo-box">
+            <!-- Il codice leggerà l'immagine se inserita nella stessa cartella -->
+            <img src="image_q6bc8i.png" alt="Agriturismo A Casa Mia Logo">
+        </div>
+        <nav>
+            <a href="#chef">La Nostra Filosofia</a>
+            <a href="#allevamenti">I Nostri Allevamenti</a>
+            <a href="#camere">Le Camere</a>
+            <a href="#informazioni">Info & Contatti</a>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h1>Agriturismo A Casa Mia</h1>
+        <a href="https://wa.me" target="_blank" class="whatsapp-action-btn">💬 Richiedi su WhatsApp</a>
+    </section>
+    <main class="main-wrapper">
+        
+        <!-- BIOGRAFIA E COMPETENZE PROFESSIONALI -->
+        <section id="chef" style="margin-bottom: 100px;">
+            <h2 class="block-title">La Nostra Filosofia</h2>
+            <div class="info-grid">
+                <div class="info-card" style="grid-column: span 2;">
+                    <h3>Formazione & Tradizione</h3>
+                    <div class="detail-row">🎓 <strong>Istruzione di Settore:</strong> Lo chef vanta un percorso accademico certificato con diploma conseguito presso l'Istituto Alberghiero, integrato ed arricchito da successive specializzazioni avanzate.</div>
+                    <div class="detail-row">🌱 <strong>Una Passione di Famiglia:</strong> Il titolare porta avanti con profonda dedizione ed orgoglio personale la stessa passione del padre, anch'esso storico allevatore di questo territorio.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE DETTAGLIATA DEGLI ALLEVAMENTI LOCALI -->
+        <section id="allevamenti" style="margin-bottom: 100px;">
+            <h2 class="block-title">I Nostri Allevamenti</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Formaggi & Pecore</h3>
+                    <div class="detail-row">🧀 Il nostro pregiato formaggio pecorino viene lavorato e prodotto in modo rigorosamente artigianale. La materia prima proviene interamente dalle pecore di proprietà, custodite nel nostro allevamento situato a brevissima distanza dalla struttura principale.</div>
+                </div>
+                <div class="info-card">
+                    <h3>Uova di giornata</h3>
+                    <div class="detail-row">🥚 Tutte le uova fresche impiegate quotidianamente all'interno delle nostre preparazioni culinarie provengono in modo esclusivo dalle galline libere, allevate con cura all'interno dei nostri spazi.</div>
+                </div>
+                <div class="info-card">
+                    <h3>Derivati Bovini d'Altura</h3>
+                    <div class="detail-row">🐄 Anche i prodotti e i derivati bovini provengono interamente da animali di nostra proprietà. I capi bovini pascolano in totale libertà sui verdi pendii e tra le montagne incontaminate che circondano il borgo.</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SCHEDA OSPITALITÀ E PERNOTTAMENTO -->
+        <section id="camere" style="margin-bottom: 100px;">
+            <h2 class="block-title">Ospitalità & Soggiorno</h2>
+            <div class="rooms-display-card">
+                <h3>Le Nostre Camere (Letto Matrimoniale)</h3>
+                <ul class="rooms-flex-list">
+                    <li>Mirtillo</li>
+                    <li>Rosa Canina</li>
+                    <li>Ginestra</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- INFORMAZIONI LOGISTICHE, RECAPITI E CONTATTI SOCIAL -->
+        <section id="informazioni">
+            <h2 class="block-title">Informazioni Generali</h2>
+            <div class="info-grid">
+                
+                <div class="info-card">
+                    <h3>Orari di Apertura</h3>
+                    <div class="detail-row">📆 <strong>Sabato e Domenica:</strong> Ristorante aperto a pranzo per gli ospiti e i visitatori.</div>
+                    <div class="detail-row">⏰ <strong>In settimana:</strong> La struttura è aperta tutti i giorni per accogliervi al meglio.</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>I Nostri Recapiti</h3>
+                    <div class="detail-row">📍 <strong>Posizione:</strong> Via Piedi Mascioni, Fraz. Poggio Cancelli, 67013 - Campotosto (AQ)</div>
+                    <div class="detail-row">💬 <strong>WhatsApp:</strong> <a href="https://wa.me" target="_blank" style="color:#556b2f; font-weight:bold; text-decoration:none;">+39 379 281 7100</a></div>
+                    <div class="detail-row">📞 <strong>Telefono Cellulare:</strong> +39 389 097 2513</div>
+                    <div class="detail-row">✉️ <strong>Email:</strong> acasamia.agriturismo@gmail.com</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Canali Ufficiali</h3>
+                    <div class="social-buttons-stack">
+                        <a href="https://facebook.com" target="_blank" class="social-action-link">📘 Facebook Ufficiali</a>
+                        <a href="https://instagram.com" target="_blank" class="social-action-link">📸 Instagram Ufficiali</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- PIÈ DI PAGINA AZIENDALE -->
+    <footer>
+        <p><strong>Agriturismo 'A Casa Mia' di Rascelli Federico</strong></p>
+        <p>Poggio Cancelli, Campotosto (L'Aquila) - Abruzzo</p>
+        <div class="footer-social-navigation" style="margin-top: 20px;">
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <!-- LOGICA SCRIPT PER IL DOWNLOAD AUTOMATICO PULITO -->
+    <script>
+        function downloadPage() {
+            const bar = document.querySelector('.utility-bar');
+            bar.remove();
+            
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'index.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.appendChild(bar);
+        }
+    </script>
+</body>
+</html>
